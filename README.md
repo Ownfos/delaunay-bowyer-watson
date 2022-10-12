@@ -13,8 +13,8 @@ Therefore typo errors might exist...
 * Press R to clear all points
 
 ## Sample screenshots
-[![sample1](https://github.com/Ownfos/delaunay-bowyer-watson/blob/main/sample1.JPG)]
-[![sample2](https://github.com/Ownfos/delaunay-bowyer-watson/blob/main/sample2.JPG)]
+![sample1](https://github.com/Ownfos/delaunay-bowyer-watson/blob/main/sample1.JPG)
+![sample2](https://github.com/Ownfos/delaunay-bowyer-watson/blob/main/sample2.JPG)
 
 ## References
 https://en.wikipedia.org/wiki/Bowyer%E2%80%93Watson_algorithm - algorithm pseudocode
