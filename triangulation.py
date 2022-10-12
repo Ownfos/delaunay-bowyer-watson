@@ -101,7 +101,7 @@ def isInCircum(p, p1, p2, p3):
 
 
 def validate(triangles):
-    for t in mesh:
+    for t in triangles:
         # check if the triangulation has a triangle that contains another point in its circumcircle
         for p in pointList:
             if p not in t and isInCircum(p, t[0], t[1], t[2]):
@@ -141,30 +141,30 @@ def triangulate(pointList):
                     else:
                         badEdges = badEdges.difference(edgeAndReverse)
 
-            # now remove bad triangles to create star-shaped polygon hole
-            for t in badTriangles:
-                triangles.remove(t)
-            
-            # insert new triangulation for the hole
-            for edge in badEdges:
-                triangles.append((edge[0], edge[1], p))
-
-        # after inserting all points, remove triangles connected to the supertriangle
-        badTriangles = []
-        for t in triangles:
-            # check if any of the three vertices are shared with the supertriangle
-            for i in range(0, 3):
-                if t[i] in supertriangle:
-                    badTriangles.append(t)
-                    break
+        # now remove bad triangles to create star-shaped polygon hole
         for t in badTriangles:
             triangles.remove(t)
+        
+        # insert new triangulation for the hole
+        for edge in badEdges:
+            triangles.append((edge[0], edge[1], p))
 
-        # confirm that we don't have any bad triangles
-        if validate(triangles) == False:
-            raise RuntimeError('Invalid triangulation!!!')
+    # after inserting all points, remove triangles connected to the supertriangle
+    badTriangles = []
+    for t in triangles:
+        # check if any of the three vertices are shared with the supertriangle
+        for i in range(0, 3):
+            if t[i] in supertriangle:
+                badTriangles.append(t)
+                break
+    for t in badTriangles:
+        triangles.remove(t)
 
-        return triangles
+    # confirm that we don't have any bad triangles
+    if validate(triangles) == False:
+        raise RuntimeError('Invalid triangulation!!!')
+
+    return triangles
 
                    
 
@@ -205,7 +205,7 @@ s.tracer(False)
 s.onclick(addPoint)
 s.onkey(undo, 'q')
 s.onkey(reset, 'r')
-clear()
+clearScreen()
 
 # initialze triangulation setting
 pointList = []
