@@ -1,10 +1,6 @@
 # delaunay-bowyer-watson
 Straightforward and somewhat dirty implementation of the Delaunay Triangulation
 
-This program was written in another computer and transcribed manually.
-
-Therefore typo errors might exist...
-
 ## How to use
 1. Run the triangulation.py file ```python ./triangulation.py```
 2. Click anywhere on the screen to create points
